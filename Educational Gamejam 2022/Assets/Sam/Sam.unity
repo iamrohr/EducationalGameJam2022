@@ -240,7 +240,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   star: {fileID: 161952997}
-  hideObjectAtRange: 0
+  hideObjectAtRange: 3
   playersChildIndicator: {fileID: 612202436}
 --- !u!212 &388537537
 SpriteRenderer:
@@ -558,6 +558,7 @@ MonoBehaviour:
   arrow: {fileID: 388537535}
   currentTime: 0
   isActivated: 0
+  timerActive: 0
 --- !u!1 &1828041817
 GameObject:
   m_ObjectHideFlags: 0
