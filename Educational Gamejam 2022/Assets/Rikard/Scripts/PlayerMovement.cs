@@ -3,111 +3,59 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public float speed = 500;
+    public float maxSpeed = 10;
+    public float rotationSpeed = 350;
+    public GameObject thrust1, thrust2;
 
-    //Dash mot musen och rotera sk�lden med A och D
+    Rigidbody2D rb2d;
+    float rotation;
 
-    Rigidbody2D _rb;
-    
-    public float playerMovementVolume = 0.25f;
-
-    public float movementSpeed = 10f;
-    public float forceSlowDown = 0.2f;
-
-    public float moveDelay = 0.26f;
-    float moveDelayReset;
-    public bool canMove = true;
-
-    Vector2 mousePosition;
-    Vector2 mouseDirection;
-
-
-
-    // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody2D>();
-        moveDelayReset = moveDelay;
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        mouseDirection = (Vector2)Input.mousePosition;
+        //Forward motion
+        float acc = Input.GetAxis("Vertical");
+        acc = Mathf.Clamp(acc, 0, 1);
 
-        //Movement
-        if (Input.GetMouseButtonDown(0) && canMove)
-        {
-            //Get mouse direction and move towards that point
-            mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mouseDirection = mousePosition - (Vector2)transform.position;
-            _rb.velocity = mouseDirection.normalized * movementSpeed;
+        if (rb2d.velocity.sqrMagnitude < maxSpeed * maxSpeed)
+            rb2d.AddForce(transform.up * acc * speed * Time.deltaTime);
 
-            //Start countdown of when player can move again
+        //Rotation
+        float rot = Input.GetAxis("Horizontal");
+        rotation -= rot * Time.deltaTime * rotationSpeed;
+        rb2d.MoveRotation(rotation);
 
-            StopMovement();
-        }
-
-        if (Input.GetKey("right") && canMove)
-        {
-            _rb.velocity = Vector3.right * movementSpeed;
-
-            //Start countdown of when player can move again
- 
-            StopMovement();
-        }
-
-        if (Input.GetKey("left") && canMove)
-        {
-            _rb.velocity = Vector3.left * movementSpeed;
-
-            //Start countdown of when player can move again
- 
-            StopMovement();
-        }
-
-        if (Input.GetKey("up") && canMove)
-        {
-            _rb.velocity = Vector3.up * movementSpeed;
-
-            //Start countdown of when player can move again
-
-            StopMovement();
-        }
-
-        if (Input.GetKey("down") && canMove)
-        {
-            _rb.velocity = Vector3.down * movementSpeed;
-
-            //Start countdown of when player can move again
-            StopMovement();
-        }
+        //Toggle art for the ship thrusters
+        ToggleTrusters(acc, rot);
     }
 
-    //Stops the player movement
-    private void StopMovement()
+    private void ToggleTrusters(float acc, float rot)
     {
-        //moveDelay -= Time.deltaTime;
-        canMove = false;
-        StartCoroutine(MoveDelay(moveDelay));
+        if (acc > 0)
+        {
+            thrust1.SetActive(true);
+            thrust2.SetActive(true);
+        }
+        else if(rot < 0)
+        {
+            thrust1.SetActive(false);
+            thrust2.SetActive(true);
+        }
+        else if (rot > 0)
+        {
+            thrust1.SetActive(true);
+            thrust2.SetActive(false);
+        }
+        else
+        {
+            thrust1.SetActive(false);
+            thrust2.SetActive(false);
+        }
     }
-
-    //Allows the player to move again after delay of X seconds.
-    IEnumerator MoveDelay(float time)
-    {
-        yield return new WaitForSeconds(time);
-        canMove = true;
-        //moveDelay = moveDelayReset;
-        yield return null;
-
-    }
-    
-
 }
-
-//void Rotate(float rotateDirection)
-//{
-//    var rotation = Quaternion.AngleAxis(rotateDirection * rotateAngle * Time.deltaTime, Vector2.up);
-//    transform.forward = rotation * transform.forward;
-//}
-
 
