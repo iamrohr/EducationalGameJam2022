@@ -7,13 +7,13 @@ public class Interact : MonoBehaviour
 
     
 
-    [SerializeField]private GameObject arrow;
+    [SerializeField]private GameObject arrow; //To call stuff from Arrowindicator script.
     public float currentTime = 0f;
     private float startingTime = 20f;
     public bool isActivated; //The child of the gameobject (indicator)
-    private bool timerActive;
+    public bool timerActive; //Checks if the timer is active
     
-
+    //Don't forget to set the bools private again.
     ArrowIndicator arrowIndicator;
 
     private void Start()
@@ -27,43 +27,41 @@ public class Interact : MonoBehaviour
     {
         if (timerActive == true)
         {
-            currentTime -= 1 * Time.deltaTime;
+            currentTime -= Time.deltaTime;
         }   
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        StartTimer();
 
+        StartTimer();
+        Debug.Log("Touched");
         if (timerActive == true)
         {
             if (other.gameObject.tag == "Player")
             {
-                Debug.Log("Touched");
-
-                
-                
-                    isActivated = true;
-                    arrowIndicator.playersChildIndicator.SetActive(true);
-
+                isActivated = true;
+                arrowIndicator.playersChildIndicator.SetActive(true);
+                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
             }
-            while (timerActive == true)
-            {
-                this.enabled = false;
-            }
-            return;
-
+        }
+        if (timerActive == false)
+        {
+            gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        
-    }
-    
     private void StartTimer()
     {
-        timerActive = true;
+        if (currentTime <= 20)
+        {
+            timerActive = true;
+        }
+        else if (currentTime >= 0)
+        {
+            timerActive = false;
+            currentTime = 20f;
+        }
     }
 
    
