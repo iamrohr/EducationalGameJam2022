@@ -259,6 +259,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1221821776}
   - {fileID: 636204260}
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -292,10 +293,13 @@ MonoBehaviour:
   rotationSpeed: 350
   thrust1: {fileID: 2067815543}
   thrust2: {fileID: 217411297}
-  dashSpeed: 0
+  _isDashing: 0
   _canDash: 1
   _dashCoolDown: 1
   _dashCoolDownReset: 0
+  dashDistance: 15
+  timeDashing: 0.4
+  dashTowards: {fileID: 1221821776}
 --- !u!1 &563942118
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,7 +417,7 @@ Transform:
   - {fileID: 2067815544}
   - {fileID: 217411299}
   m_Father: {fileID: 551676980}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &636204261
 CircleCollider2D:
@@ -1155,6 +1159,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1221821775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1221821776}
+  m_Layer: 0
+  m_Name: Dash Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 2488908585195742037, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1221821776
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1221821775}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.55, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 551676980}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1236159076
 GameObject:
   m_ObjectHideFlags: 0
@@ -1412,8 +1447,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3a64bdcc64c30144bf8539cce51501d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 551676980}
-  smoothTime: 0.45
 --- !u!114 &1459754266
 MonoBehaviour:
   m_ObjectHideFlags: 0
