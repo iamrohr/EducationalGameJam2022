@@ -5,15 +5,20 @@ using UnityEngine;
 public class Interact : MonoBehaviour
 {
 
-    
 
-    [SerializeField]private GameObject arrow; //To call stuff from Arrowindicator script.
-    public float currentTime = 0f;
+    [SerializeField] public Transform star; //Drag the star that you need to take into the inspector.
+    [SerializeField] private GameObject arrow; //To call stuff from Arrowindicator script.
+    [SerializeField] private float currentTime = 0f; //Current time
+
+    //----------------------------------------------------------------------------------------------------------------
+
+
     private float startingTime = 20f; //The starting time.
     public bool isActivated; //The child of the gameobject (indicator)
-    public bool timerActive; //Checks if the timer is active
-    
-    //Don't forget to set the bools private again.
+    private bool timerActive; //Checks if the timer is active
+
+    //----------------------------------------------------------------------------------------------------------------
+   
     ArrowIndicator arrowIndicator;
 
     private void Start()
@@ -59,8 +64,4 @@ public class Interact : MonoBehaviour
             timerActive = true;
         }
     }
-
-   
-    
-
 }
