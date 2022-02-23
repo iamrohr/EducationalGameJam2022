@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class PickUp : MonoBehaviour
 {
-    [SerializeField] private float speed;
-    private Transform player;
-    private bool fishTouched;
+    [SerializeField] private float speed;       //The speed value of the smaller fish
+
+    private Transform player;                   //Object it has to follow
+    private bool fishTouched;                   //Checks if the fish is touched
 
     //Add stuff when the player is touched here 
 
@@ -27,7 +28,6 @@ public class PickUp : MonoBehaviour
         }
        
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         fishTouched = true;

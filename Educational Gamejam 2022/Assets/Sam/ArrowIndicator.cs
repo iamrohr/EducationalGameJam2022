@@ -5,12 +5,12 @@ using UnityEngine;
 public class ArrowIndicator : MonoBehaviour
 {
     [SerializeField] private GameObject interaction;
-    [SerializeField] private float hideObjectAtRange;  //Hides the indicator at a certain range can be set
+    [SerializeField] private float hideObjectAtRange;       //Hides the indicator at a certain range can be set
 
     //----------------------------------------------------------------------------------------------------------------
 
     public GameObject playersChildIndicator;
-    private float angle; //Angle of the object.
+    private float angle;                                   //Angle of the object.
 
     //----------------------------------------------------------------------------------------------------------------
 
