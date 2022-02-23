@@ -39,9 +39,7 @@ public class Interact : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
         StartTimer();
-        Debug.Log("Touched");
         if (timerActive == true)
         {
             if (other.gameObject.tag == "Player")
