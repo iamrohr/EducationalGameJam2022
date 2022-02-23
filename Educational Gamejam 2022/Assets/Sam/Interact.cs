@@ -9,7 +9,7 @@ public class Interact : MonoBehaviour
 
     [SerializeField]private GameObject arrow; //To call stuff from Arrowindicator script.
     public float currentTime = 0f;
-    private float startingTime = 20f;
+    private float startingTime = 20f; //The starting time.
     public bool isActivated; //The child of the gameobject (indicator)
     public bool timerActive; //Checks if the timer is active
     
@@ -18,16 +18,22 @@ public class Interact : MonoBehaviour
 
     private void Start()
     {
-        arrowIndicator = arrow.GetComponent<ArrowIndicator>();
+        arrowIndicator = arrow.GetComponent<ArrowIndicator>(); //Gets the ArrowIndicator component.
         isActivated = false; //Star Hint is set to false.
-        currentTime = startingTime;
+        currentTime = startingTime; //sets current time to starting time
     }
 
     private void Update()
     {
-        if (timerActive == true)
+        if (timerActive == true)    //timer stuff
         {
             currentTime -= Time.deltaTime;
+            if (currentTime <= 0)
+            {
+                timerActive = false;
+                currentTime = startingTime;
+                gameObject.GetComponent<CapsuleCollider2D>().enabled = true;   //Sets the collider on enabled
+            }
         }   
     }
 
@@ -41,14 +47,11 @@ public class Interact : MonoBehaviour
             if (other.gameObject.tag == "Player")
             {
                 isActivated = true;
-                arrowIndicator.playersChildIndicator.SetActive(true);
-                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
+                arrowIndicator.playersChildIndicator.SetActive(true); 
+                gameObject.GetComponent<CapsuleCollider2D>().enabled = false; //disables the collider
             }
         }
-        if (timerActive == false)
-        {
-            gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
-        }
+
     }
 
     private void StartTimer()
@@ -56,11 +59,6 @@ public class Interact : MonoBehaviour
         if (currentTime <= 20)
         {
             timerActive = true;
-        }
-        else if (currentTime >= 0)
-        {
-            timerActive = false;
-            currentTime = 20f;
         }
     }
 
