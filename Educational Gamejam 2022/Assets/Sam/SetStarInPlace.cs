@@ -5,11 +5,8 @@ using UnityEngine;
 
 public class SetStarInPlace : MonoBehaviour
 {
-    [SerializeField] private GameObject selectedStar;
-    [SerializeField] GameObject Particles;
-    
-
-
+    [SerializeField] private GameObject selectedStar;           //The star that needs to touch the object.
+    [SerializeField] GameObject Particles;                      //The particle object.
 
     private void Start()
     {

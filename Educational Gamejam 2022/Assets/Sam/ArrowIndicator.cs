@@ -40,7 +40,7 @@ public class ArrowIndicator : MonoBehaviour
     
     }
    
-    private void IndicatorActive(bool Activity)
+    private void IndicatorActive(bool Activity)   //Sets indicator onActive.
     {
         foreach (Transform child in transform)
         {
