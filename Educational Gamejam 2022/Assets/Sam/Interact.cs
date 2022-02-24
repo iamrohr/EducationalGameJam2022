@@ -6,16 +6,16 @@ public class Interact : MonoBehaviour
 {
 
 
-    [SerializeField] public Transform star; //Drag the star that you need to take into the inspector.
-    [SerializeField] private GameObject arrow; //To call stuff from Arrowindicator script.
-    [SerializeField] private float currentTime = 0f; //Current time
+    [SerializeField] public Transform star;                 //Drag the star that you need to take into the inspector.
+    [SerializeField] private GameObject arrow;              //To call stuff from Arrowindicator script.
+    [SerializeField] private float currentTime = 0f;        //Current time
 
     //----------------------------------------------------------------------------------------------------------------
 
 
-    private float startingTime = 20f; //The starting time.
-    public bool isActivated; //The child of the gameobject (indicator)
-    private bool timerActive; //Checks if the timer is active
+    private float startingTime = 20f;                       //The starting time.
+    public bool isActivated;                                //The child of the gameobject (indicator)
+    private bool timerActive;                               //Checks if the timer is active
 
     //----------------------------------------------------------------------------------------------------------------
    
@@ -23,9 +23,9 @@ public class Interact : MonoBehaviour
 
     private void Start()
     {
-        arrowIndicator = arrow.GetComponent<ArrowIndicator>(); //Gets the ArrowIndicator component.
-        isActivated = false; //Star Hint is set to false.
-        currentTime = startingTime; //sets current time to starting time
+        arrowIndicator = arrow.GetComponent<ArrowIndicator>();  //Gets the ArrowIndicator component.
+        isActivated = false;                                    //Star Hint is set to false.
+        currentTime = startingTime;                             //sets current time to starting time
     }
 
     private void Update()
@@ -51,7 +51,7 @@ public class Interact : MonoBehaviour
             {
                 isActivated = true;
                 arrowIndicator.playersChildIndicator.SetActive(true); 
-                gameObject.GetComponent<CapsuleCollider2D>().enabled = false; //disables the collider
+                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;   //disables the collider
             }
         }
 
@@ -59,9 +59,9 @@ public class Interact : MonoBehaviour
 
     private void StartTimer()
     {
-        if (currentTime <= 20)
+        if (currentTime <= 20)   //Checks if the current time is 20 or below
         {
-            timerActive = true;
+            timerActive = true;  //if the time is below 20, set the activity of the timer on true.
         }
     }
 }

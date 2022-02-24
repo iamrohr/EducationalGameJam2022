@@ -239,6 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d224553058bc7654484c730ecb7039d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  interaction: {fileID: 1713296463}
   hideObjectAtRange: 3
   playersChildIndicator: {fileID: 612202436}
 --- !u!212 &388537537
@@ -450,6 +451,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1483514028}
   - component: {fileID: 1483514027}
+  - component: {fileID: 1483514029}
+  - component: {fileID: 1483514030}
   m_Layer: 0
   m_Name: StarThing
   m_TagString: PickUp
@@ -524,6 +527,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1483514029
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483514026}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!114 &1483514030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1483514026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a097a5e854fba004282cc82328113e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 4
 --- !u!1 &1713296463
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,7 +674,6 @@ MonoBehaviour:
   arrow: {fileID: 388537535}
   currentTime: 0
   isActivated: 0
-  timerActive: 0
 --- !u!1 &1828041817
 GameObject:
   m_ObjectHideFlags: 0

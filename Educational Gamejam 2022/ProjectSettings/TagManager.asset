@@ -42,3 +42,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Fish
+    uniqueID: 3283258033
+    locked: 0
+  - name: Stars[Close]
+    uniqueID: 3781672965
+    locked: 0
+  - name: Planets
+    uniqueID: 3825615805
+    locked: 0
+  - name: Stars[medium]
+    uniqueID: 3302106481
+    locked: 0
+  - name: Stars[Far]
+    uniqueID: 2870972223
+    locked: 0
+  - name: Gas Cloud Endings
+    uniqueID: 468152769
+    locked: 0
+  - name: Gas CloudPURPLE
+    uniqueID: 734248305
+    locked: 0
+  - name: Gas CloudYELLOW
+    uniqueID: 2289335899
+    locked: 0
