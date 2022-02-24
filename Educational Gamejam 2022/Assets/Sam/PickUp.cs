@@ -6,11 +6,15 @@ public class PickUp : MonoBehaviour
 {
     [SerializeField] private float speed;       //The speed value of the smaller fish
     [SerializeField] private Transform player;  //Object it has to follow
-    private bool fishTouched;                   //Checks if the fish is touched
+    public bool fishTouched;                   //Checks if the fish is touched
+
+
+    public GameObject enemyToActivate;
     //Add stuff when the player is touched here 
 
     private void Start()
     {
+        
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
@@ -19,7 +23,7 @@ public class PickUp : MonoBehaviour
         if (fishTouched == true)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-            
+            enemyToActivate.SetActive(true);
         }
        
     }
