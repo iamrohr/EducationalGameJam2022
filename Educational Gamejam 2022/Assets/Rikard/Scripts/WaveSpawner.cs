@@ -77,18 +77,18 @@ public class WaveSpawner : MonoBehaviour
 
     void WaveCompleted()
     {
-        state = SpawnState.counting;
+        // state = SpawnState.counting;
+        state = SpawnState.spawning;
         waveCountDown = timeBetweenWaves;
 
         if(nextWave + 1 > waves.Length - 1)
         {
             //All waves completed
-            foreach (GameObject bars in barsList)
-            {
-                bars.GetComponent<SpriteRenderer>().enabled = true;
-            }
-
-            ableToSpawn = false;
+            
+            Debug.Log("All waves completed");
+            //looping the spawn
+            ableToSpawn = true;
+            state = SpawnState.spawning;
             Destroy(transform.parent.gameObject);
         }
         else
@@ -97,25 +97,7 @@ public class WaveSpawner : MonoBehaviour
         }
 
     }
-
-
-    bool SpawnBosses()
-    {
-        timeBtwSpawns -= Time.deltaTime;
-
-        if (timeBtwSpawns <= 0f)
-        {
-            timeBtwSpawns = Random.Range(1, 20);
-
-            if (GameObject.FindGameObjectsWithTag("Enemy Spawned").Length <= 0)
-            {
-                return false;
-            }
-        }
-        return true;
-    }
-
-
+    
 
     bool EnemyIsAlive()
     {
