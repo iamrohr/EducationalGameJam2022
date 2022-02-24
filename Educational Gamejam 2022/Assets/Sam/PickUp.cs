@@ -19,7 +19,6 @@ public class PickUp : MonoBehaviour
         if (fishTouched == true)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-            
         }
        
     }
