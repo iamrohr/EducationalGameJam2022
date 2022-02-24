@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LineControllerSetup : MonoBehaviour
 {
-  [SerializeField] private Transform[] starPoints;
+  public Transform[] starPoints;
   [SerializeField] private LineController line;
   
   private void Update()
