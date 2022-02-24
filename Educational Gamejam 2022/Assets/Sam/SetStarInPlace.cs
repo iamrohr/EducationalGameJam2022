@@ -8,6 +8,7 @@ public class SetStarInPlace : MonoBehaviour
     [SerializeField] private GameObject selectedStar;
     [SerializeField] GameObject Particles;
 
+    public GameObject deleteNullObject;
     public GameObject enemyToActivate;
 
     private void Start()
@@ -22,6 +23,7 @@ public class SetStarInPlace : MonoBehaviour
             selectedStar.SetActive(false);
             Particles.SetActive(true);
             Destroy(enemyToActivate);
+            Destroy(deleteNullObject);
         }
     }
 
