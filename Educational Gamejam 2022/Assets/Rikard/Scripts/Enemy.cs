@@ -8,6 +8,8 @@ public class Enemy : MonoBehaviour
     private float waitBeforeMoving = 2.0f;
     private bool hasArrived = false;
 
+    private Vector3 currentPosition;
+
     private void start()
     {
         movementDuration = Random.Range(5.0f, 10.0f);
@@ -17,12 +19,14 @@ public class Enemy : MonoBehaviour
     
     private void Update()
     {
+        currentPosition = transform.position;
+        
         if(!hasArrived)
         {
             hasArrived = true;
-            float randX = Random.Range(-3f, 8f);
-            float randY = Random.Range(-3f, 8f);
-            StartCoroutine(MoveToPoint(new Vector3(randX, randY, 0)));
+            float randX = Random.Range(-3f, 3f);
+            float randY = Random.Range(-3f, 3f);
+            StartCoroutine(MoveToPoint(new Vector3(currentPosition.x + randX, currentPosition.y + randY, 0)));
         }
     }
  
@@ -36,7 +40,7 @@ public class Enemy : MonoBehaviour
             timer += Time.deltaTime;
             float t = timer / movementDuration;
             t = t * t * t * (t * (6f * t - 15f) + 10f);
-            transform.position = Vector3.Lerp(startPos, targetPos, t);
+            transform.position = Vector3.Lerp(currentPosition, targetPos, t);
  
             yield return null;
         }
