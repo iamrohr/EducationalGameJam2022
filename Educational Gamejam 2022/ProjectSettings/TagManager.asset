@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - PickUp
+  - Fishy
   layers:
   - Default
   - TransparentFX
@@ -42,14 +43,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Planets
+    uniqueID: 3825615805
+    locked: 0
   - name: Fish
     uniqueID: 3283258033
     locked: 0
   - name: Stars[Close]
     uniqueID: 3781672965
-    locked: 0
-  - name: Planets
-    uniqueID: 3825615805
     locked: 0
   - name: Stars[medium]
     uniqueID: 3302106481
