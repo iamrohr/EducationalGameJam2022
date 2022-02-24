@@ -1601,7 +1601,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.7777778, y: 1}
+    m_SensorSize: {x: 2.079258, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -4442,6 +4442,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1794814380650520835, guid: 663ad787b0fa495449a8399443a3d174, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794814380650520835, guid: 663ad787b0fa495449a8399443a3d174, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071069
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794814380650520835, guid: 663ad787b0fa495449a8399443a3d174, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2148669130940154298, guid: 663ad787b0fa495449a8399443a3d174, type: 3}
       propertyPath: m_Name
       value: Player Holder
@@ -4499,6 +4511,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2148669130940154303, guid: 663ad787b0fa495449a8399443a3d174, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049874497511696254, guid: 663ad787b0fa495449a8399443a3d174, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9999765
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049874497511696254, guid: 663ad787b0fa495449a8399443a3d174, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.0068513067
+      objectReference: {fileID: 0}
+    - target: {fileID: 4049874497511696254, guid: 663ad787b0fa495449a8399443a3d174, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}

@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 2148669130940154303}
   - component: {fileID: 2148669130940154297}
   - component: {fileID: 2148669130940154301}
-  - component: {fileID: 2148669130940154302}
+  - component: {fileID: 1343000662}
   m_Layer: 0
   m_Name: Player Holder
   m_TagString: Untagged
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f329fdb478079c4cb9a344ca10ff5cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 500
+  speed: 350
   maxSpeed: 10
   rotationSpeed: 350
   thrust1: {fileID: 0}
@@ -112,18 +112,26 @@ MonoBehaviour:
   dashDistance: 15
   timeDashing: 0.4
   dashTowards: {fileID: 2148669130540804315}
---- !u!114 &2148669130940154302
-MonoBehaviour:
+--- !u!95 &1343000662
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2148669130940154298}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef68f02c1871f5940992a0f5bb83d2bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 58a18813848576b42b498cb5e92248c7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &2593443665535829782
 PrefabInstance:
   m_ObjectHideFlags: 0
