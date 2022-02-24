@@ -8,7 +8,7 @@ public class ActivateLevel : MonoBehaviour
 
     void OnTriggerEnter2D(UnityEngine.Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             LevelToActivate.SetActive(true);
         }
