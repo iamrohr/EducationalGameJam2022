@@ -37,7 +37,7 @@ public class Interact : MonoBehaviour
             {
                 timerActive = false;
                 currentTime = startingTime;
-                gameObject.GetComponent<CapsuleCollider2D>().enabled = true;   //Sets the collider on enabled
+                gameObject.GetComponent<CircleCollider2D>().enabled = true;   //Sets the collider on enabled
             }
         }   
     }
@@ -51,7 +51,7 @@ public class Interact : MonoBehaviour
             {
                 isActivated = true;
                 arrowIndicator.playersChildIndicator.SetActive(true); 
-                gameObject.GetComponent<CapsuleCollider2D>().enabled = false;   //disables the collider
+                gameObject.GetComponent<CircleCollider2D>().enabled = false;   //disables the collider
             }
         }
 
